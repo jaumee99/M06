@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="js/index.js"></script>
+    </head>
+    <body>
+        <h3>Estrelles</h3>
+        <a>Numeros de estrelles</a>
+        <input type="range" name="rangeInput" min="50" max="1000" onchange="numeroSTR(this.value);">
+        <input type="text" id="numeroSTR" value="">
+        <br/>
+        <a>Radi maxim de l'estrella</a>
+        <input type="range" name="rangeInput" min="1" max="6" onchange="radiSTR(this.value);">
+        <input type="text" id="radiSTR" value="">
+        <br/>
+        <a>Distancia minima estrelles</a>
+        <input type="range" name="rangeInput" min="1" max="10" onchange="distanciaSTR(this.value);">
+        <input type="text" id="distanciaSTR" value="">
+        <br/>
+        <button id="Mostra" onclick="location.href = 'estrellesPage.html';" onClick="">Mostra</button>
+    </body>
+</html>
