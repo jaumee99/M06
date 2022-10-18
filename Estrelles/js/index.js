@@ -1,3 +1,14 @@
+//en la segona pagina si es vol canviar la quantitat de estrelles d'ha de anar fent f5
+//falta fer: distancia entre estrelles
+window.onload = function start(){
+    
+    stars = createStars(width, height, 30);
+    render();
+    document.getElementById("radiSTR").addEventListener("change", numeroSTR);
+}
+
+let stars;
+
 //estrelles
 const backgroundColor = "#000";
 const width = window.innerWidth;
@@ -18,7 +29,10 @@ function fillCircle(ctx, x, y, r, fillStyle) {
     ctx.fill();
 }
 
-const maxStarRadius = 1.5;
+
+const maxStarRadius = window.localStorage.getItem('Radi estrella');
+const minDistance = window.localStorage.getItem('Distancia estrelles');
+const quantStar = window.localStorage.getItem('Numeros estrelles');
 
 function createStars(width, height, spacing) {
     const stars = [];
@@ -36,36 +50,39 @@ function createStars(width, height, spacing) {
     return stars;
 }
 
-const stars = createStars(width, height, 30);
 
 function render() {
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, width, height);
-    stars.forEach(function(star) {
-        const x = star.x;
-        const y = star.y;
-        const r = star.r;
+    for(let i = 0; i < quantStar; i++){
+        const x = stars[i].x;
+        const y = stars[i].y;
+        const r = stars[i].r;
         fillCircle(ctx, x, y, r, "rgb(255, 255, 255)");
-    });
+    }
 }
 
-render();
 
+//localStorage
+const size = [""]
 
-//html input range i localStorage
 function numeroSTR(val) {
     document.getElementById('numeroSTR').value=val;
     localStorage.setItem('Numeros estrelles', val)
+    window.localStorage.setItem("numeroSTR", size[0].value);
+    render();
 }
 
 function radiSTR(val) {
     document.getElementById('radiSTR').value=val;
     localStorage.setItem('Radi estrella', val)
+    window.localStorage.setItem("radiSTR", size[1].value);
 }
 
 function distanciaSTR(val) {
     document.getElementById('distanciaSTR').value=val;
     localStorage.setItem('Distancia estrelles', val)
+    window.localStorage.setItem("distanciaSTR", size[2].value);
 }
 
 document.getElementById("Mostra").onclick = function () {
