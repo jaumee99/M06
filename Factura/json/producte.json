@@ -1,0 +1,37 @@
+[
+    {
+        "code" : 1,
+        "nom" : "pa",
+        "quantitat": "<input type=\"number\" name=\"myNumber\" id=\"pa\" value=\"1\">",
+        "preu": 2,
+        "Total": "0"
+    },
+    {
+        "code" : 2,
+        "nom" : "oli",
+        "quantitat": "<input type=\"number\" name=\"myNumber\" id=\"oli\" value=\"1\">",
+        "preu": 5,
+        "Total": "0"
+    },
+    {
+        "code" : 3,
+        "nom" : "tomate",
+        "quantitat": "<input type=\"number\" name=\"myNumber\" id=\"tomate\" value=\"1\">",
+        "preu": 3,
+        "Total": "0"
+    },
+    {
+        "code" : 4,
+        "nom" : "embotit",
+        "quantitat": "<input type=\"number\" name=\"myNumber\" id=\"embotit\" value=\"1\">",
+        "preu": 23,
+        "Total": "0"
+    },
+    {
+        "code" : 5,
+        "nom" : "vi",
+        "quantitat": "<input type=\"number\" name=\"myNumber\" id=\"vi\" value=\"1\">",
+        "preu": 20,
+        "Total": "0"
+    }   
+]

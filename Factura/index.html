@@ -6,12 +6,15 @@
         <link rel="stylesheet" href="./css/index.css">
     </head>
     <body>
-        <label>num factura:<input type="text" id="numFactura" name="numFactura"/></label>
+        <div id="numFactura"></div>
         <br/>
         <label for="article">article:</label>
-        <select id="article"></select>
+        <select id="article" name="article">
+            <option value=""></option>
+        </select>
+        <button type="sumbit" name="add">+</button>
         <br/>
-        <table>
+        <table name="tbl">
             <tr>
               <td>Codi</td>
               <td>Nom</td>
