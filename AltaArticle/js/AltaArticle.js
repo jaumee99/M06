@@ -8,6 +8,9 @@ window.onload = function start(){
     document.getElementById("Estantaria").addEventListener("change", comprovaEstantaria);
     document.getElementById("Forat").addEventListener("change", comprovaForat);
 
+    AddPoblacio();
+    document.getElementsByTagName("select")[0].addEventListener("change", comprovaEdifici);
+    document.getElementById("Edifici").addEventListener("change", comprovaEdifici);
 }
 
 function AddFamilies(){
@@ -94,3 +97,34 @@ function Img(inputElement, isValid) {
 }
 
 
+//examen 1.1
+function AddPoblacio(){
+    var Poblacions = ['Catalunya', 'Batet', 'China', 'Canya', 'Canada'];
+
+    let select = document.getElementById('Localització');
+
+    let mapPoblacions = Poblacions.map(Poblacio => Poblacio.substr(0,3));
+    console.log(mapPoblacions)
+
+    Poblacions.sort();
+    Poblacions.forEach (i => {
+        var opt = document.createElement('option');
+        opt.value = i;
+        opt.innerHTML = i;
+        select.appendChild(opt);
+    });
+}
+
+//examen 1.2
+function comprovaEdifici() {
+    var select = document.getElementsByTagName("select")[0];
+    var Edifici = document.getElementById("Edifici");
+
+    var opcioEscollida = select.options[select.selectedIndex].text.toLowerCase();
+    var lletres = opcioEscollida.slice(0, 5);
+
+    var regEx = new RegExp(`^${lletres}+[0-9]{3}.[a-z]{2}$`);
+    var regExpTest = regEx.test(Edifici.value);
+
+    Img(Edifici, regExpTest);
+}

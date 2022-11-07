@@ -81,3 +81,12 @@ function select() {
     document.getElementsByName("tbl")[0].appendChild(tr);
   }
 
+  function calcularPreu(){
+    preu = Array.prototype.find.call(producte, (x) => !Number.isInteger(x))
+    Total = quantitat(val)*preu;
+    return Total;
+  }
+
+  function quantitat(val) {
+    document.getElementsByName('myNumber').value=val;
+}

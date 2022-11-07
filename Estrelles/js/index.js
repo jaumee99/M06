@@ -5,6 +5,7 @@ window.onload = function start(){
     stars = createStars(width, height, 30);
     render();
     document.getElementById("radiSTR").addEventListener("change", numeroSTR);
+    document.getElementById("distanciaSTR").addEventListener("change", distanciaSTR);
 }
 
 let stars;
@@ -34,6 +35,7 @@ const maxStarRadius = window.localStorage.getItem('Radi estrella');
 const minDistance = window.localStorage.getItem('Distancia estrelles');
 const quantStar = window.localStorage.getItem('Numeros estrelles');
 
+
 function createStars(width, height, spacing) {
     const stars = [];
 
@@ -50,6 +52,20 @@ function createStars(width, height, spacing) {
     return stars;
 }
 
+//examen 2.1
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    if (color == '#000000'){
+        color = getRandomColor();
+    }
+    return color;
+  }
+
+
 
 function render() {
     ctx.fillStyle = backgroundColor;
@@ -58,7 +74,7 @@ function render() {
         const x = stars[i].x;
         const y = stars[i].y;
         const r = stars[i].r;
-        fillCircle(ctx, x, y, r, "rgb(255, 255, 255)");
+        fillCircle(ctx, x, y, r, getRandomColor());
     }
 }
 
