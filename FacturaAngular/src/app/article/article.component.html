@@ -1,0 +1,21 @@
+<label>Producte
+<br/>
+<select type="number" name="miselect" [(ngModel)]="seleccionat">
+    <option [ngValue]="producte" *ngFor="let producte of productes">
+    {{producte.nom}}
+    </option>
+</select>
+
+</label>
+
+<button (click)="addItem()">+</button>
+
+<tr *ngFor="let row of productes; let i = index">
+    <td> {{row.codi}} </td>
+    <td> {{row.nom}} </td>
+    <td> {{row.quantitat}} </td>
+    <td> {{row.preu}} </td>
+    <td> {{row.total}} </td>
+</tr>
+
+
