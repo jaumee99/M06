@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CartaSetIMig } from '../../Model/Entitats/Implementions/Carta/CartaSetIMig';
+import { BarallaService } from '../../Model/Services/baralla/baralla.service';
+import { JugadorService } from '../../Model/Services/jugador/jugador.service';
 
 @Component({
   selector: 'app-carta',
@@ -7,13 +9,19 @@ import { CartaSetIMig } from '../../Model/Entitats/Implementions/Carta/CartaSetI
   styleUrls: ['./carta.component.css']
 })
 export class CartaComponent implements OnInit {
-  carta!: CartaSetIMig;
+  @Input() carta!: CartaSetIMig;
 
-  constructor() { }
+  constructor(private barallaService: BarallaService,private JugadorService: JugadorService) { }
 
   ngOnInit(): void {
-    this.carta = new CartaSetIMig(1,'porro','http://blog.eatb.es/wp-content/uploads/2013/02/porro-glass-pitcher.jpg');
-    console.log(this.carta);
   }
 
+  agafar(carta: CartaSetIMig): void{
+    if(this.JugadorService.getJugador().contar()<=7.5) {
+      carta.girar();
+      this.JugadorService.getJugador().agafar(carta);
+      this.barallaService.getBaralla().eliminar(carta);
+    }
+    
+  }
 }

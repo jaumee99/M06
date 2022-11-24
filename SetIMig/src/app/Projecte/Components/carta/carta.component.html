@@ -1,0 +1,8 @@
+<div (click)="agafar(carta)">
+    <div *ngIf="!carta.status">
+        <img src="/assets/cartaGirada.png">
+    </div>
+    <div *ngIf="carta.status">
+        <img [src]="carta.img">
+    </div>
+</div>

@@ -1,7 +1,5 @@
-{{baralla}}
-<table>
-    <tr *ngFor="let carta of baralla.cartes">
-        <td><img [src]="carta.img" /></td>
-    </tr>
-</table>
+
+<div *ngFor="let carta of getBaralla().cartes">
+    <app-carta [carta]="carta"></app-carta>
+</div>
 

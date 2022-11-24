@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BarallaSetIMig } from '../../Model/Entitats/Implementions/Baralla/Baralla';
+import { BarallaService } from '../../Model/Services/baralla/baralla.service';
 
 @Component({
   selector: 'app-baralla',
@@ -7,13 +8,15 @@ import { BarallaSetIMig } from '../../Model/Entitats/Implementions/Baralla/Baral
   styleUrls: ['./baralla.component.css']
 })
 export class BarallaComponent implements OnInit {
-  baralla! : BarallaSetIMig;
+  //baralla! : BarallaSetIMig;
 
-  constructor() { }
+  constructor(private barallaService: BarallaService) { }
 
   ngOnInit(): void {
-    this.baralla = new BarallaSetIMig();
-    console.log(this.baralla);
+
   }
 
+  public getBaralla():BarallaSetIMig {
+    return this.barallaService.getBaralla();
+  }
 }

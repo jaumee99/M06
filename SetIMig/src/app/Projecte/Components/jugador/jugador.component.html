@@ -1,0 +1,5 @@
+<h1>Jugador: {{ this.getJugador().contar()}}</h1>
+
+<div *ngFor="let carta of getJugador().cartes">
+    <app-carta [carta]="carta"></app-carta>
+</div>
