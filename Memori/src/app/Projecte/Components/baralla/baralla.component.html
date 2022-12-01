@@ -1,0 +1,6 @@
+<h3>Errors: {{this.errors}}</h3>
+<div *ngFor="let fila of getBaralla().fila">
+    <div *ngFor="let carta of fila.cartes">
+        <app-carta [carta]="carta" (clicked)="clickCarta(carta)"></app-carta>
+    </div>
+</div>

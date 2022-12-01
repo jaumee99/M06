@@ -1,28 +1,39 @@
-import { IBarallaSetIMig } from "../../Interfaces/Baralla/IBarallaSetIMig";
-import { ICartaSetIMig } from "../../Interfaces/Carta/ICartaSetIMig";
-import { CartaSetIMig } from "../Carta/CartaSetIMig";
+import { Utils } from "src/app/Projecte/Utils/Utils";
+import { IBaralla } from "../../Interfaces/Baralla/IBaralla";
+import { ICarta } from "../../Interfaces/Carta/ICarta";
+import { IFila } from "../../Interfaces/Fila/IFila";
+import { CartaMemori } from "../Carta/CartaMemori";
+import { Fila } from "../Fila/Fila";
 
 
-export class BarallaSetIMig implements IBarallaSetIMig{
-   cartes: Array<ICartaSetIMig> = new Array<ICartaSetIMig>();
-   pals: Array<string> = ["copas", "oros", "bastos", "espadas"]
+export class BarallaMemori implements IBaralla{
+   fila: Array<IFila> = new Array<IFila>();
+   cartes: CartaMemori[] = new Array<CartaMemori>();
 
-   constructor() {
-      this.pals.forEach(pals => {
-         for (let i = 1; i < 13; i++) {
-            if (i !== 8 && i !== 9) {
-            const carta = new CartaSetIMig(i, pals, "https://www.trivin.es/wp-content/themes/nirvana/images/cards/" + pals + "_"+ i.toString().padStart(2, '0') + ".png");
-            this.cartes.push(carta);
-            }            
-         }
-      });
+
+
+   constructor()
+   {
+      for (let i = 1; i < 5; i++) {
+         this.fila.push(new Fila(i));           
+      }
    }
 
    barrejar(): void {
-      throw new Error("Method not implemented.");
-   }
+      this.fila.forEach(row => {
+         for (let index = 0; index < this.fila.length; index++) this.canviar(row.cartes, index);
+      });
+  }
 
-   eliminar(carta: CartaSetIMig) {
-      this.cartes = this.cartes.filter(c => carta!=c)
-   }
+  private canviar(arr: Array<CartaMemori>, index:number) {
+      const index2=Utils.getRandom(arr.length -1);
+      this.intercanviar(arr, index, index2);
+  }
+
+  private intercanviar(arr: Array<CartaMemori>, index:number,index2:number) {
+      const aux=arr[index];
+      arr[index] = arr[index2];
+      arr[index2] = aux;
+  }
+
 }

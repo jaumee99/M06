@@ -1,5 +1,9 @@
 export interface ICarta {
     num: number;
-    pal: string;
+    fila: number;
     img: string;
+    status: boolean;
+    girar(): void;
+    amagar(): void; 
+
 }

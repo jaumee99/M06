@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BarallaSetIMig } from '../../Entitats/Implementions/Baralla/Baralla';
+import { BarallaMemori } from '../../Entitats/Implementions/Baralla/Baralla';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BarallaService {
-  baralla:BarallaSetIMig = new BarallaSetIMig();
+  baralla:BarallaMemori = new BarallaMemori();
 
-  constructor () { }
+  constructor() { }
 
-  getBaralla():BarallaSetIMig { return this.baralla; }
+  getBaralla():BarallaMemori { return this.baralla; }
 }
-
