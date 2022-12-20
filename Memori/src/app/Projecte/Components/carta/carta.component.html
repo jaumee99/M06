@@ -1,8 +1,8 @@
 <div class="card" (click)="agafar(carta)">
     <div *ngIf="!carta.status">
-        <img src="/assets/cartaGirada.png">
+        <img src=".{{ route }}assets/cartaGirada.png">
     </div>
     <div *ngIf="carta.status">
-        <img [src]="carta.img">
+        <img src=".{{route + carta.img}}">
     </div>
 </div>

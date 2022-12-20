@@ -7,7 +7,7 @@ export class Fila implements IFila {
 
     constructor(numFila: number) {
         for (let i = 1; i < 5; i++) {
-            const carta = new CartaMemori(i, numFila, "/assets/" + i + ".png");
+            const carta = new CartaMemori(i, numFila, "assets/" + i + ".png");
             this.cartes.push(carta);           
         }
      }
