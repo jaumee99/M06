@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AtencioClient": {
+    "rubrica": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/atencio-client",
+            "outputPath": "dist/rubrica",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "AtencioClient:build:production"
+              "browserTarget": "rubrica:build:production"
             },
             "development": {
-              "browserTarget": "AtencioClient:build:development"
+              "browserTarget": "rubrica:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AtencioClient:build"
+            "browserTarget": "rubrica:build"
           }
         },
         "test": {
@@ -99,6 +99,6 @@
     }
   },
   "cli": {
-    "analytics": "d95c4618-9e0e-465d-bf91-9020d86d7aa9"
+    "analytics": "ba2bb400-c51b-458e-a65c-01d52540a519"
   }
 }

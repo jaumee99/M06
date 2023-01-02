@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormulariCriterisComponent } from './Projecte/Components/formulari-criteris/formulari-criteris.component';
-import { FormulariComponent } from './Projecte/Components/formulari/formulari.component';
+import { CriteriComponent } from './Projecte/Components/criteri/criteri.component';
+import { ValoracioComponent } from './Projecte/Components/valoracio/valoracio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormulariCriterisComponent,
-    FormulariComponent
+    CriteriComponent,
+    ValoracioComponent
   ],
   imports: [
     BrowserModule,
