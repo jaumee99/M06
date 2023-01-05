@@ -1,7 +1,7 @@
 import { ICriteri } from "../Interfaces/ICriteri";
-import { IValoracions } from "../Interfaces/IValoracions";
+import { Valoracions } from "./Valoracions";
 
 export class Criteri implements ICriteri {
     titol!: string;
-    valoracions!: Array<IValoracions>;
+    valoracions: Valoracions[] = new Array<Valoracions>;
 }

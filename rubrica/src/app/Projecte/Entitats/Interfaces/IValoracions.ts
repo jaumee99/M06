@@ -1,4 +1,4 @@
 export interface IValoracions {
-    nota: string;
-    descripcio: string;
+    titol: string;
+    nota: number;
 }
