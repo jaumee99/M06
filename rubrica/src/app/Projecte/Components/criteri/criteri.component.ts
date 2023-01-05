@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormArray } from "@angular/forms";
+import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from "@angular/forms";
 
 
 @Component({
@@ -11,11 +11,11 @@ export class CriteriComponent implements OnInit {
   Form!: FormGroup;
   //const valoracions = this.Form.get('valoracions') as FormArray;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.Form = new FormGroup({
-        Criteri: new FormControl('', Validators.required),
+    this.Form = this.fb.group({
+        criteri: new FormControl('', Validators.required),
       valoracions: new FormArray([])
     });
   }
@@ -23,6 +23,7 @@ export class CriteriComponent implements OnInit {
   onSubmit() {
     console.log(this.Form);
     this.Form.reset();
+    this.guardarCriteri();
   }
 
   valoracions() {
@@ -30,10 +31,15 @@ export class CriteriComponent implements OnInit {
   }
 
   onAddValoracio() {
-    const control = new FormControl(null, Validators.required);
+    const control = new FormControl('', Validators.required);
     (<FormArray>this.Form.get("valoracions")).push(control);
   }
 
-
+  guardarCriteri() {
+    const Criteri = JSON.stringify(this.Form.value.Criteri);
+    localStorage.setItem('Criteri', Criteri);
+    const Valoracions = JSON.stringify(this.Form.value.valoracions);
+    localStorage.setItem('Valoracions', Valoracions);
+  }
 
 }
