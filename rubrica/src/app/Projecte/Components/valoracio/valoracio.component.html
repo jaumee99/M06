@@ -1,0 +1,13 @@
+<table>
+    <tr>
+      <th></th>
+      <th *ngFor="let valoracions of objeto.valoracions">{{valoracions}}</th>
+      <th *ngFor="let nota of objeto.array3">{{nota}}</th>
+    </tr>
+    <tr *ngFor="let criteri of objeto.criteri">
+      <td>{{criteri}}</td>
+      <td *ngFor="let valoracions of objeto.valoracions">{{objeto.valores[criteri][valoracions]}}</td>
+      <td *ngFor="let nota of objeto.array3">{{objeto.valores[criteri][nota]}}</td>
+    </tr>
+</table>
+  

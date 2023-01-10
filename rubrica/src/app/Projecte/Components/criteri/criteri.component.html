@@ -1,33 +1,26 @@
 <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <form [formGroup]="Form" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="criteri">Criteri</label>
-            <input
-            type="text"
-            id="criteri"
-            formControlName="criteri"
-            class="form-control"
-            />
-        </div>
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form [formGroup]="Form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="criteri">Criteri</label>
+                    <input type="text" id="criteri" formControlName="criteri" class="form-control" />
+                </div>
 
-        <div formArrayName="valoracions">
-        <h4>valoracions</h4>
-        <button class="btn btn-default" type="button" (click)="onAddValoracio()">
-            Add Valoracio
-        </button>
-        <div class="form-group"
-        *ngFor="let valoracioControl of this.valoracions().controls; let i = index;"
-        >
-            <p>valoracio</p>
-            <input type="text" class="form-control" [formControlName]="i" />
-            <p>puntuacio</p>
-            <input type="text" class="form-control" [formControlName]="i" />
+                <div formArrayName="valoracions"
+                    *ngFor="let valoracioControl of this.valoracions().controls; let i = index;">
+                    <button class="btn btn-default" type="button" (click)="onAddValoracio()">
+                        Add Valoracio
+                    </button>
+                    <div [formGroupName]="i">
+                        <p>valoracio</p>
+                        <input type="text" class="form-control" formControlName="valoracio" />
+                        <p>nota</p>
+                        <input type="text" class="form-control" formControlName="nota" />
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
         </div>
-        </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
-    </form>
-    </div>
     </div>
 </div>

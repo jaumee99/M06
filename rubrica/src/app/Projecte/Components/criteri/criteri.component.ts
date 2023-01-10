@@ -16,14 +16,32 @@ export class CriteriComponent implements OnInit {
   ngOnInit(): void {
     this.Form = this.fb.group({
         criteri: new FormControl('', Validators.required),
-      valoracions: new FormArray([])
+        valoracions: new FormArray([
+          this.fb.group({
+            valoracio: new FormControl('', Validators.required),
+            nota: new FormControl('', Validators.required),
+          })
+        ])
     });
+  }
+
+  onNewCriteriClick(): void {
+    this.Form = this.fb.group({
+      criteri: new FormControl('', Validators.required),
+      valoracions: new FormArray([
+        this.fb.group({
+          valoracio: new FormControl('', Validators.required),
+          nota: new FormControl('', Validators.required),
+        })
+      ])
+  });
   }
 
   onSubmit() {
     console.log(this.Form);
-    this.Form.reset();
     this.guardarCriteri();
+    this.onNewCriteriClick();
+    this.Form.reset();
   }
 
   valoracions() {
@@ -31,15 +49,22 @@ export class CriteriComponent implements OnInit {
   }
 
   onAddValoracio() {
-    const control = new FormControl('', Validators.required);
+    const control = new FormGroup({
+      valoracio: new FormControl('', Validators.required),
+      nota: new FormControl('', Validators.required)
+    }, Validators.required);
     (<FormArray>this.Form.get("valoracions")).push(control);
   }
 
   guardarCriteri() {
-    const Criteri = JSON.stringify(this.Form.value.Criteri);
-    localStorage.setItem('Criteri', Criteri);
-    const Valoracions = JSON.stringify(this.Form.value.valoracions);
-    localStorage.setItem('Valoracions', Valoracions);
+    const object = localStorage.getItem('Value');
+    let criteris = [];
+    if (object) {
+      criteris = JSON.parse(object);
+    }
+    criteris.push(this.Form.value);
+    const Value = JSON.stringify(criteris);
+    localStorage.setItem('Value', Value);
   }
 
 }

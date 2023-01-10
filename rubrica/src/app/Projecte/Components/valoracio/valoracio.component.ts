@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./valoracio.component.css']
 })
 export class ValoracioComponent implements OnInit {
+  objeto: any;
 
-  constructor() { }
+  constructor() { 
+    this.getLocalStorage();
+  }
 
   ngOnInit(): void {
+  }
+
+  getLocalStorage() {
+    const object = localStorage.getItem('Value');
+    if (object) {
+      this.objeto = JSON.parse(object);
+    }
+    return object;
   }
 
 }
