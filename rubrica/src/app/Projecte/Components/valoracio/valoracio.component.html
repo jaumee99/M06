@@ -6,6 +6,10 @@
         <tr *ngFor="let valoracio of item.valoracions">
           <td onclick="this.classList.toggle('selected');">Valoración: {{ valoracio.valoracio }}</td>
           <td>Nota: {{ valoracio.nota }}</td>
+          <td>
+              <input type="radio" id="radio">
+              <label for="radio"></label><br>
+          </td>
         </tr>
       </table>
     </td>
