@@ -1,13 +1,13 @@
 <table>
-    <tr>
-      <th></th>
-      <th *ngFor="let valoracions of objeto.valoracions">{{valoracions}}</th>
-      <th *ngFor="let nota of objeto.array3">{{nota}}</th>
-    </tr>
-    <tr *ngFor="let criteri of objeto.criteri">
-      <td>{{criteri}}</td>
-      <td *ngFor="let valoracions of objeto.valoracions">{{objeto.valores[criteri][valoracions]}}</td>
-      <td *ngFor="let nota of objeto.array3">{{objeto.valores[criteri][nota]}}</td>
-    </tr>
+  <tr *ngFor="let item of getLocalStorage()">
+    <td>Criterio: {{ item.criteri }}</td>
+    <td>
+      <table>
+        <tr *ngFor="let valoracio of item.valoracions">
+          <td>Valoración: {{ valoracio.valoracio }}</td>
+          <td>Nota: {{ valoracio.nota }}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 </table>
-  
