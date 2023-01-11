@@ -4,7 +4,7 @@
     <td>
       <table>
         <tr *ngFor="let valoracio of item.valoracions">
-          <td>Valoración: {{ valoracio.valoracio }}</td>
+          <td onclick="this.classList.toggle('selected');">Valoración: {{ valoracio.valoracio }}</td>
           <td>Nota: {{ valoracio.nota }}</td>
         </tr>
       </table>

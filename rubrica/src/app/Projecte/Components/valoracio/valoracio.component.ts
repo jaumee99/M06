@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValoracioComponent implements OnInit {
 
-  constructor() { 
+  constructor() {
     this.getLocalStorage();
   }
 

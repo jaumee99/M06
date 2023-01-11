@@ -15,13 +15,13 @@ export class CriteriComponent implements OnInit {
 
   ngOnInit(): void {
     this.Form = this.fb.group({
-        criteri: new FormControl('', Validators.required),
-        valoracions: new FormArray([
-          this.fb.group({
-            valoracio: new FormControl('', Validators.required),
-            nota: new FormControl('', Validators.required),
-          })
-        ])
+      criteri: new FormControl('', Validators.required),
+      valoracions: new FormArray([
+        this.fb.group({
+          valoracio: new FormControl('', Validators.required),
+          nota: new FormControl('', Validators.required),
+        })
+      ])
     });
   }
 
@@ -34,7 +34,7 @@ export class CriteriComponent implements OnInit {
           nota: new FormControl('', Validators.required),
         })
       ])
-  });
+    });
   }
 
   onSubmit() {
